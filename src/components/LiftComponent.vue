@@ -1,8 +1,10 @@
 <template>
   <div
     class="lift"
-    :class="{ moov: upwardMovement || downwardMovement }"
-    :style="{ marginTop: -104 * valueLevel + 100 + 'px' }"
+    :class="{
+      moov: upwardMovement || downwardMovement,
+    }"
+    :style="{ marginTop: -115 * valueLevel + 'px' }"
   >
     <div>Этаж {{ valueLevel }}</div>
     <div v-if="upwardMovement">&#9650;</div>
@@ -33,7 +35,7 @@ export default {
 .lift {
   position: relative;
   width: 70px;
-  height: 80px;
+  height: 115px;
   z-index: 9;
   border: 1px solid blue;
   border-radius: 2px;
@@ -50,7 +52,7 @@ export default {
   align-items: center;
   color: whitesmoke;
   font-size: 21px;
-  top: 650px;
+  top: 575px;
 }
 
 .moov {

@@ -35,8 +35,9 @@ export default {
 
 <style scoped>
 .floor {
-  height: 105px;
+  height: 115px;
   border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
 }
 
 .input {

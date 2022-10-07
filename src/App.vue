@@ -5,7 +5,10 @@
       :upwardMovement="upwardMovement"
       :downwardMovement="downwardMovement"
     />
-    <floor-component :levels="levels" @movement="elevatorMovement" />
+    <floor-component
+      :levels="levels"
+      @movement="elevatorMovement"
+    />
   </div>
 </template>
 
@@ -18,15 +21,13 @@ export default {
   data() {
     return {
       levels: [
-        { id: 7, title: "7" },
-        { id: 6, title: "6" },
         { id: 5, title: "5" },
         { id: 4, title: "4" },
         { id: 3, title: "3" },
         { id: 2, title: "2" },
         { id: 1, title: "1" },
       ],
-      valueLevel: 1,
+      valueLevel: localStorage.getItem("level") || 1,
       valueLevelPred: 1,
       upwardMovement: false,
       downwardMovement: false,
@@ -37,6 +38,7 @@ export default {
     elevatorMovement(value) {
       this.valueLevelPred = this.valueLevel;
       this.valueLevel = value;
+      localStorage.setItem("level", value);
       if (this.valueLevelPred < this.valueLevel) {
         this.upwardMovement = true;
         this.downwardMovement = false;
@@ -57,8 +59,7 @@ export default {
 }
 
 .app {
-  max-width: 1400px;
-  max-height: 840px;
+  max-width: 1200px;
+  max-height: 600px;
 }
-
 </style>
