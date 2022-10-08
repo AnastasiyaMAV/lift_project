@@ -48,10 +48,12 @@ export default {
         this.upwardMovement = true;
         this.downwardMovement = false;
         setTimeout(() => this.upwardMovement = false, 4000);
-      } else {
+      } else if (this.valueLevelPred > this.valueLevel) {
         this.downwardMovement = true;
         this.upwardMovement = false;
         setTimeout(() => this.downwardMovement = false, 4000);
+      } else {
+        return
       }
     },
 
