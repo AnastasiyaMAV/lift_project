@@ -5,7 +5,12 @@
       :upwardMovement="upwardMovement"
       :downwardMovement="downwardMovement"
     />
-    <floor-component :levels="levels" @movement="elevatorMovement" />
+    <floor-component 
+      :levels="levels"
+      :upwardMovement="upwardMovement"
+      :downwardMovement="downwardMovement"
+      :valueLevel="valueLevel"
+      @movement="elevatorMovement" />
     <div class="btnGroup">
       <main-button @click="clearLocalStorage">Сбросить</main-button>
     </div>
@@ -21,11 +26,11 @@ export default {
   data() {
     return {
       levels: [
-        { id: 5, title: 5 },
-        { id: 4, title: 4 },
-        { id: 3, title: 3 },
-        { id: 2, title: 2 },
-        { id: 1, title: 1 },
+        { id: 5, title: "5" },
+        { id: 4, title: "4" },
+        { id: 3, title: "3" },
+        { id: 2, title: "2" },
+        { id: 1, title: "1" },
       ],
       valueLevel: localStorage.getItem("level") || "1",
       valueLevelPred: 1,
