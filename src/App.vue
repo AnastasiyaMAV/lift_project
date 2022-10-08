@@ -27,7 +27,7 @@ export default {
         { id: 2, title: 2 },
         { id: 1, title: 1 },
       ],
-      valueLevel: localStorage.getItem("level") || 1,
+      valueLevel: localStorage.getItem("level") || "1",
       valueLevelPred: 1,
       upwardMovement: false,
       downwardMovement: false,
@@ -42,15 +42,17 @@ export default {
       if (this.valueLevelPred < this.valueLevel) {
         this.upwardMovement = true;
         this.downwardMovement = false;
+        setTimeout(() => this.upwardMovement = false, 4000);
       } else {
         this.downwardMovement = true;
         this.upwardMovement = false;
+        setTimeout(() => this.downwardMovement = false, 4000);
       }
     },
 
     clearLocalStorage() {
       localStorage.removeItem("level");
-      this.valueLevel = 1;
+      this.valueLevel = "1";
     },
   },
 };

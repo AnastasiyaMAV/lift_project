@@ -15,7 +15,7 @@ export default {
 
   props: {
     valueLevel: {
-      type: Number,
+      type: String,
       required: true,
     },
     upwardMovement: {

@@ -3,6 +3,8 @@
     class="lift"
     :class="{
       moov: upwardMovement || downwardMovement,
+      moovUp: upwardMovement,
+      moovDown: downwardMovement,
     }"
     :style="{ marginTop: -115 * valueLevel + 'px' }"
   >
@@ -16,7 +18,7 @@
 export default {
   props: {
     valueLevel: {
-      type: Number,
+      type: String,
       required: true,
     },
     upwardMovement: {
@@ -59,5 +61,20 @@ export default {
   -webkit-transition: all 1s linear;
   -moz-transition: all 1s linear;
   transition: all 1s linear;
+}
+
+.moovUp,
+.moovDown {
+  animation-name: blink;
+  animation-timing-function: linear;
+  animation-delay: 1s;
+  animation-duration: 1s;
+  animation-iteration-count: 3;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }
 </style>

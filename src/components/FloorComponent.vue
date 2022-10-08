@@ -7,6 +7,7 @@
       :value="level.title"
       v-model="floorLift"
       @click="elevatorMovement"
+      :disabled="ifDisabled"
     />
     <label class="label" :for="level.id">{{ level.title }}</label>
   </div>
@@ -23,11 +24,14 @@ export default {
   data() {
     return {
       floorLift: "",
+      ifDisabled: false,
     };
   },
   methods: {
     elevatorMovement(event) {
       this.$emit("movement", event.target.value);
+      this.ifDisabled = true;
+      setTimeout(() => this.ifDisabled = false, 1000);
     },
   },
 };
